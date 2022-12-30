@@ -1,11 +1,12 @@
 ---
- - hosts: websrvgrp
-   become: yes
-tasks:
-   -name:  Install Apache web server
+- hosts: websrvgrp
+  become: yes
+  tasks:
+    -name:  Install Apache web server
     yum:
-    name: httpd
-    state: present  
+      name: httpd
+      state: present
+      
    -name: Copy web application code
     copy:
       src: /path/to/app
