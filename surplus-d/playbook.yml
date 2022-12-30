@@ -1,0 +1,17 @@
+---
+ - hosts: websrvgrp
+   become: yes
+tasks:
+   -name:  Install Apache web server
+    yum:
+    name: httpd
+    state: present  
+   -name: Copy web application code
+    copy:
+      src: /path/to/app
+      dest: /var/www/html
+   -name: Start Aparche web server
+    service:
+      name: httpd
+      state: started
+      enabled: yes
